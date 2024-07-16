@@ -1,0 +1,26 @@
+DatasetDict({
+    train: Dataset({
+        features: ['id', 'question', 'answer', 'distractor1', 'distractor2', 'distractor(unsure)', 'label', 'choice_list', 'choice_order', 'a', 'b', 'c', 'd'],
+        num_rows: 364
+    })
+    test: Dataset({
+        features: ['id', 'question', 'answer', 'distractor1', 'distractor2', 'distractor(unsure)', 'label', 'choice_list', 'choice_order', 'a', 'b', 'c', 'd'],
+        num_rows: 92
+    })
+    validation: Dataset({
+        features: ['id', 'question', 'answer', 'distractor1', 'distractor2', 'distractor(unsure)', 'label', 'choice_list', 'choice_order', 'a', 'b', 'c', 'd'],
+        num_rows: 51
+    })
+})
+{'id': 'SP-208', 'question': 'The more you take, the more you leave behind', 'answer': 'Footsteps.', 'distractor1': 'Love.', 'distractor2': 'Money.', 'distractor(unsure)': 'None of above.', 'label': 1, 'choice_list': ['Love.', 'Footsteps.', 'Money.', 'None of above.'], 'choice_order': [1, 0, 2, 3], 'a': 'Love.', 'b': 'Footsteps.', 'c': 'Money.', 'd': 'None of above.'}
+{'id': 'SP-28_SR', 'question': 'Here on Earth, a certain big animal prospers and lives happily. One day, a mystery disease that solely affects this unique species annihilates each and every one of these writers. They are all gone; there are none remaining everywhere on earth. They start to reappear on Earth again a year or so later. How is this possible?', 'answer': 'The animal is the Mule. Since all Mules are born sterile, you can only get a Mule by crossing a donkey with a horse.', 'distractor1': 'The animal is the dinosaur. Millions of years ago, dinosaurs roamed the Earth, but eventually, they became extinct due to various factors such as climate change or asteroid impact.', 'distractor2': 'The animal is the butterfly. During the pupal stage of their life cycle, butterflies are inside a protective casing, and it may appear as if they have completely disappeared or been wiped out.', 'distractor(unsure)': 'None of above.', 'label': 0, 'choice_list': ['The animal is the Mule. Since all Mules are born sterile, you can only get a Mule by crossing a donkey with a horse.', 'The animal is the dinosaur. Millions of years ago, dinosaurs roamed the Earth, but eventually, they became extinct due to various factors such as climate change or asteroid impact.', 'The animal is the butterfly. During the pupal stage of their life cycle, butterflies are inside a protective casing, and it may appear as if they have completely disappeared or been wiped out.', 'None of above.'], 'choice_order': [0, 1, 2, 3], 'a': 'The animal is the Mule. Since all Mules are born sterile, you can only get a Mule by crossing a donkey with a horse.', 'b': 'The animal is the dinosaur. Millions of years ago, dinosaurs roamed the Earth, but eventually, they became extinct due to various factors such as climate change or asteroid impact.', 'c': 'The animal is the butterfly. During the pupal stage of their life cycle, butterflies are inside a protective casing, and it may appear as if they have completely disappeared or been wiped out.', 'd': 'None of above.'}
+{'id': 'SP-105_CR', 'question': 'Two farmers got into a heated argument and started fighting. A farmer was so enraged that he threw a handful of stones at the other farmer. The stones hit the farmer exactly, but the other farmer received no harm at all.  Why?', 'answer': 'The stones was actually seeds, not ordinary stones. The seed of a cherry is called a stone.', 'distractor1': 'The stones were small or lacked enough force to cause any significant injury.', 'distractor2': 'The other farmer was wearing protective clothing or had some form of shield that prevented the stones from causing harm.', 'distractor(unsure)': 'None of above.', 'label': 0, 'choice_list': ['The stones was actually seeds, not ordinary stones. The seed of a cherry is called a stone.', 'The other farmer was wearing protective clothing or had some form of shield that prevented the stones from causing harm.', 'The stones were small or lacked enough force to cause any significant injury.', 'None of above.'], 'choice_order': [0, 2, 1, 3], 'a': 'The stones was actually seeds, not ordinary stones. The seed of a cherry is called a stone.', 'b': 'The other farmer was wearing protective clothing or had some form of shield that prevented the stones from causing harm.', 'c': 'The stones were small or lacked enough force to cause any significant injury.', 'd': 'None of above.'}
+Using selector: EpollSelector
+Starting new HTTPS connection (1): huggingface.co:443
+We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Starting new HTTPS connection (2): huggingface.co:443
+Some parameters are on the meta device device because they were offloaded to the cpu.
+Starting new HTTPS connection (3): huggingface.co:443
+Pad token: <|end_of_text|>
+EOS token: <|end_of_text|>
+Using template: gemini-prompt-generation

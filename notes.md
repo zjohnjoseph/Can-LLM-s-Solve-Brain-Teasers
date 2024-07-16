@@ -1,0 +1,22 @@
+- With "Answer: " suffix, tends to answer in full sentences, so it's hard to parse the answer
+- Temperature of 0 means no randomness during generation
+- Does number or alpha options perform better?
+- In practice, there is currently absolutely no reason to not use Flash Attention if available. The algorithm gives mathematically the same outputs, and is both faster and more memory-efficient.
+- ways of improving efficiency:
+  - use lower precision formats (i.e. quantize to 4/8bit using bitsandbytes)
+  - replace default self-attention with flash attention (increasingly beneficial as input length increases)
+  - LLMs that are intended to be deployed in tasks that require handling large text inputs are better trained with relative positional embeddings, such as RoPE and ALiBi
+- MQA: reducing the number of key-value attention heads to 1 only makes sense if a key-value cache is used
+- GQA: by choosing n to a significantly smaller value than n_head, such as 2,4 or 8 almost all of the memory and speed gains from MQA can be kept while sacrificing less model capacity and thus arguably less performance
+- Keep in mind LLMs (more precisely, decoder-only models) also return the input prompt as part of the output.
+- tokenizer.pad_token = tokenizer.eos_token  # Most LLMs don't have a pad token by default
+- By default, and unless specified in the GenerationConfig file, generate selects the most likely token at each iteration (greedy decoding). Depending on your task, this may be undesirable; creative tasks like chatbots or writing an essay benefit from sampling. On the other hand, input-grounded tasks like audio transcription or translation benefit from greedy decoding. Enable sampling with do_sample=True
+- LLMs are decoder-only architectures, meaning they continue to iterate on your input prompt. If your inputs do not have the same length, they need to be padded. Since LLMs are not trained to continue from pad tokens, your input needs to be left-padded.
+- select an optimizer and a learning rate (and schedule) for fine-tuning hyperparameters
+- The process of selecting output tokens to generate text is known as decoding, and you can customize the decoding strategy that the generate() method will use. Modifying a decoding strategy does not change the values of any trainable parameters. However, it can have a noticeable impact on the quality of the generated output. It can help reduce repetition in the text and make it more coherent.
+- there are multiple decoder strategies you can use when generating text: https://huggingface.co/blog/how-to-generate
+  - greedy, selects token with highest probability, no beam or sampling
+  - contrastive, generating non-repetitive but coherent results
+  - multinomial, probabilistically selects the next token based on all non-zero probability tokens
+  - beam, keeps multiple hypothesis at the same time so that an average probability after generating 'n' tokens is used.
+- you preprocess data before passing it to a model for inference using one of tokenizer, feature extraction, image processor, or processor for text, audio, image, or multimodal
